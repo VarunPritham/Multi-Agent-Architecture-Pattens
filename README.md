@@ -36,6 +36,10 @@ Market-based task allocation — a solicitor broadcasts a task, bidder agents re
 Fault isolation + least privilege — agents are organised into a hierarchy where supervisors manage child lifecycle (restart, backoff, escalate) and each agent is spawned with only the tools it needs.
 → `supervision_tree.py` · `notes/05_supervision_tree.md`
 
+### 7. Multi-Agent Planning
+Goal decomposition + dependency-aware execution — a planning agent breaks a high-level goal into a dependency graph of sub-tasks, runs independent tasks in parallel, gates dependent tasks, and replans dynamically on failure.
+→ `multi_agent_planning.py` · `notes/07_multi_agent_planning.md`
+
 ---
 
 ## How to Follow
@@ -53,15 +57,18 @@ python swarm_architecture.py
 python blackboard_hub.py
 python contract_net_marketplace.py
 python supervision_tree.py
+python multi_agent_planning.py
 ```
 
 **Scaffold new patterns** — slash commands in `.claude/commands/` let you generate a new implementation for any domain:
 ```
-/create-agent-router        <your domain>
-/create-supervisor          <your domain>
-/create-swarm               <your domain>
-/create-blackboard          <your domain>
-/create-supervision-tree    <your domain>
+/create-agent-router           <your domain>
+/create-supervisor             <your domain>
+/create-swarm                  <your domain>
+/create-blackboard             <your domain>
+/create-supervision-tree       <your domain>
+/create-contract-net           <your domain>
+/create-multi-agent-planning   <your domain>
 ```
 
 ---
@@ -74,3 +81,4 @@ python supervision_tree.py
 4. Blackboard — iterative knowledge convergence for ill-defined problems
 5. Contract-Net — market-based dynamic agent selection at runtime
 6. Supervision Tree — fault isolation and least-privilege capability guarding
+7. Multi-Agent Planning — decompose goals into parallel dependency graphs

@@ -28,6 +28,14 @@ Decentralized coordination — agents poll a shared task board and self-select w
 Iterative convergence — specialists post typed, confidence-weighted facts to a shared board until enough evidence accumulates for a conclusion.
 → `blackboard_hub.py` · `notes/04_blackboard_hub.md`
 
+### 5. Contract-Net Marketplace
+Market-based task allocation — a solicitor broadcasts a task, bidder agents respond with cost/ETA/confidence bids, and a utility function picks the winner at runtime. Adapts to dynamic agent availability.
+→ `contract_net_marketplace.py`
+
+### 6. Supervision Tree with Guarded Capabilities
+Fault isolation + least privilege — agents are organised into a hierarchy where supervisors manage child lifecycle (restart, backoff, escalate) and each agent is spawned with only the tools it needs.
+→ `supervision_tree.py` · `notes/05_supervision_tree.md`
+
 ---
 
 ## How to Follow
@@ -43,14 +51,17 @@ python router.py
 python supervisor_architecture.py
 python swarm_architecture.py
 python blackboard_hub.py
+python contract_net_marketplace.py
+python supervision_tree.py
 ```
 
 **Scaffold new patterns** — slash commands in `.claude/commands/` let you generate a new implementation for any domain:
 ```
-/create-agent-router    <your domain>
-/create-supervisor      <your domain>
-/create-swarm           <your domain>
-/create-blackboard      <your domain>
+/create-agent-router        <your domain>
+/create-supervisor          <your domain>
+/create-swarm               <your domain>
+/create-blackboard          <your domain>
+/create-supervision-tree    <your domain>
 ```
 
 ---
@@ -60,4 +71,6 @@ python blackboard_hub.py
 1. Agent Router — understand intent extraction and routing before anything else
 2. Supervisor — learn centralized control, checkpointing, structured handoffs
 3. Swarm — contrast with Supervisor; understand pull-based, emergent coordination
-4. Blackboard — the most complex; builds on ideas from all three prior patterns
+4. Blackboard — iterative knowledge convergence for ill-defined problems
+5. Contract-Net — market-based dynamic agent selection at runtime
+6. Supervision Tree — fault isolation and least-privilege capability guarding

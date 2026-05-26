@@ -40,6 +40,10 @@ Fault isolation + least privilege — agents are organised into a hierarchy wher
 Goal decomposition + dependency-aware execution — a planning agent breaks a high-level goal into a dependency graph of sub-tasks, runs independent tasks in parallel, gates dependent tasks, and replans dynamically on failure.
 → `multi_agent_planning.py` · `notes/07_multi_agent_planning.md`
 
+### 8. Knowledge Sharing
+Shared epistemic memory — agents write discoveries to a collective knowledge base and retrieve semantically similar entries via TF-IDF cosine similarity. Trust signals (peer ratings, use counts) surface the best knowledge; a governance agent deprecates low-quality entries. The system gets smarter with every query.
+→ `knowledge_sharing.py` · `notes/08_knowledge_sharing.md`
+
 ---
 
 ## How to Follow
@@ -58,6 +62,7 @@ python blackboard_hub.py
 python contract_net_marketplace.py
 python supervision_tree.py
 python multi_agent_planning.py
+python knowledge_sharing.py
 ```
 
 **Scaffold new patterns** — slash commands in `.claude/commands/` let you generate a new implementation for any domain:
@@ -69,6 +74,7 @@ python multi_agent_planning.py
 /create-supervision-tree       <your domain>
 /create-contract-net           <your domain>
 /create-multi-agent-planning   <your domain>
+/create-knowledge-sharing      <your domain>
 ```
 
 ---
@@ -82,3 +88,4 @@ python multi_agent_planning.py
 5. Contract-Net — market-based dynamic agent selection at runtime
 6. Supervision Tree — fault isolation and least-privilege capability guarding
 7. Multi-Agent Planning — decompose goals into parallel dependency graphs
+8. Knowledge Sharing — collective memory, semantic retrieval, trust-driven quality

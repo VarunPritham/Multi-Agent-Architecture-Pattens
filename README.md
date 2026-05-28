@@ -56,6 +56,10 @@ Multi-round convergence — a group of agents broadcast their beliefs, observe t
 Structured offer/counter-offer protocol — a mediator detects scheduling conflicts, grants the highest-priority agent its slot, and asks lower-priority agents to propose alternatives within their flexibility constraints. RIGID agents that cannot move fall back to forced resolution. Full audit transcript + ASCII timeline.
 → `negotiation.py` · `notes/11_negotiation.md`
 
+### 12. Resource Allocation
+Priority-aware dispatch with anti-starvation, preemption, and auction bidding — a pool of shared resources is dispatched to competing agents using a tick-based simulation. Supports three strategies (PRIORITY_QUEUE, AUCTION, FAIR_SHARE), age-based priority boosting to prevent starvation, and CRITICAL preemption that can interrupt a running lower-priority task.
+→ `resource_allocation.py` · `notes/12_resource_allocation.md`
+
 ---
 
 ## How to Follow
@@ -78,6 +82,7 @@ python knowledge_sharing.py
 python tool_routing.py
 python consensus.py
 python negotiation.py
+python resource_allocation.py
 ```
 
 **Scaffold new patterns** — slash commands in `.claude/commands/` let you generate a new implementation for any domain:
@@ -93,6 +98,7 @@ python negotiation.py
 /create-tool-routing           <your domain>
 /create-consensus              <your domain>
 /create-negotiation            <your domain>
+/create-resource-allocation   <your domain>
 ```
 
 ---
@@ -110,3 +116,4 @@ python negotiation.py
 9. Tool Routing — scoped tool dispatch, dynamic registry, two-level routing
 10. Consensus — iterative belief convergence, outlier detection, audit trail
 11. Agent Negotiation — offer/counter-offer protocol, flexibility constraints, forced resolution
+12. Resource Allocation — priority dispatch, anti-starvation boosts, CRITICAL preemption, auction bidding

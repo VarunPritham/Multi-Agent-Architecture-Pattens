@@ -64,6 +64,10 @@ Priority-aware dispatch with anti-starvation, preemption, and auction bidding �
 Structured detection and multi-strategy mediation — a SupervisorAgent intercepts competing plans before execution and resolves them using one of four strategies: policy-based rules (compliance overrides speed), hierarchical authority (priority wins), iterative negotiation (flexible agents propose alternatives), or game-theoretic Nash equilibrium (self-interest aligned with global optimum). Full audit trail on every decision.
 → `conflict_resolution.py` · `notes/13_conflict_resolution.md`
 
+### 14. Formation Control
+Decentralized swarm coordination via local neighbor rules — each agent maintains a fixed positional offset from one designated neighbor using a proportional controller. No central planner. Collective shape (line, V, grid) emerges from local sensing. Obstacle repulsion cascades through the neighbor chain and the formation self-repairs.
+→ `formation_control.py` · `notes/14_formation_control.md`
+
 ---
 
 ## How to Follow
@@ -88,6 +92,7 @@ python consensus.py
 python negotiation.py
 python resource_allocation.py
 python conflict_resolution.py
+python formation_control.py
 ```
 
 **Scaffold new patterns** — slash commands in `.claude/commands/` let you generate a new implementation for any domain:
@@ -105,6 +110,7 @@ python conflict_resolution.py
 /create-negotiation            <your domain>
 /create-resource-allocation   <your domain>
 /create-conflict-resolution   <your domain>
+/create-formation-control     <your domain>
 ```
 
 ---
@@ -124,3 +130,4 @@ python conflict_resolution.py
 11. Agent Negotiation — offer/counter-offer protocol, flexibility constraints, forced resolution
 12. Resource Allocation — priority dispatch, anti-starvation boosts, CRITICAL preemption, auction bidding
 13. Conflict Resolution — policy rules, hierarchical authority, negotiation, Nash equilibrium, audit trail
+14. Formation Control — local neighbor offsets, proportional controller, obstacle cascade, self-repair

@@ -60,6 +60,10 @@ Structured offer/counter-offer protocol — a mediator detects scheduling confli
 Priority-aware dispatch with anti-starvation, preemption, and auction bidding — a pool of shared resources is dispatched to competing agents using a tick-based simulation. Supports three strategies (PRIORITY_QUEUE, AUCTION, FAIR_SHARE), age-based priority boosting to prevent starvation, and CRITICAL preemption that can interrupt a running lower-priority task.
 → `resource_allocation.py` · `notes/12_resource_allocation.md`
 
+### 13. Conflict Resolution
+Structured detection and multi-strategy mediation — a SupervisorAgent intercepts competing plans before execution and resolves them using one of four strategies: policy-based rules (compliance overrides speed), hierarchical authority (priority wins), iterative negotiation (flexible agents propose alternatives), or game-theoretic Nash equilibrium (self-interest aligned with global optimum). Full audit trail on every decision.
+→ `conflict_resolution.py` · `notes/13_conflict_resolution.md`
+
 ---
 
 ## How to Follow
@@ -83,6 +87,7 @@ python tool_routing.py
 python consensus.py
 python negotiation.py
 python resource_allocation.py
+python conflict_resolution.py
 ```
 
 **Scaffold new patterns** — slash commands in `.claude/commands/` let you generate a new implementation for any domain:
@@ -99,6 +104,7 @@ python resource_allocation.py
 /create-consensus              <your domain>
 /create-negotiation            <your domain>
 /create-resource-allocation   <your domain>
+/create-conflict-resolution   <your domain>
 ```
 
 ---
@@ -117,3 +123,4 @@ python resource_allocation.py
 10. Consensus — iterative belief convergence, outlier detection, audit trail
 11. Agent Negotiation — offer/counter-offer protocol, flexibility constraints, forced resolution
 12. Resource Allocation — priority dispatch, anti-starvation boosts, CRITICAL preemption, auction bidding
+13. Conflict Resolution — policy rules, hierarchical authority, negotiation, Nash equilibrium, audit trail

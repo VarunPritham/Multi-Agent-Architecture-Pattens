@@ -52,6 +52,10 @@ Scoped tool dispatch — a central router classifies intent via LLM tool_use and
 Multi-round convergence — a group of agents broadcast their beliefs, observe the collective mean, and iteratively adjust toward agreement. An outlier-detection layer identifies and down-weights agents providing systematically bad data. The process terminates on convergence or max rounds, with a full audit trail of every round.
 → `consensus.py` · `notes/10_consensus.md`
 
+### 11. Agent Negotiation
+Structured offer/counter-offer protocol — a mediator detects scheduling conflicts, grants the highest-priority agent its slot, and asks lower-priority agents to propose alternatives within their flexibility constraints. RIGID agents that cannot move fall back to forced resolution. Full audit transcript + ASCII timeline.
+→ `negotiation.py` · `notes/11_negotiation.md`
+
 ---
 
 ## How to Follow
@@ -73,6 +77,7 @@ python multi_agent_planning.py
 python knowledge_sharing.py
 python tool_routing.py
 python consensus.py
+python negotiation.py
 ```
 
 **Scaffold new patterns** — slash commands in `.claude/commands/` let you generate a new implementation for any domain:
@@ -87,6 +92,7 @@ python consensus.py
 /create-knowledge-sharing      <your domain>
 /create-tool-routing           <your domain>
 /create-consensus              <your domain>
+/create-negotiation            <your domain>
 ```
 
 ---
@@ -103,3 +109,4 @@ python consensus.py
 8. Knowledge Sharing — collective memory, semantic retrieval, trust-driven quality
 9. Tool Routing — scoped tool dispatch, dynamic registry, two-level routing
 10. Consensus — iterative belief convergence, outlier detection, audit trail
+11. Agent Negotiation — offer/counter-offer protocol, flexibility constraints, forced resolution

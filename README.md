@@ -44,6 +44,14 @@ Goal decomposition + dependency-aware execution — a planning agent breaks a hi
 Shared epistemic memory — agents write discoveries to a collective knowledge base and retrieve semantically similar entries via TF-IDF cosine similarity. Trust signals (peer ratings, use counts) surface the best knowledge; a governance agent deprecates low-quality entries. The system gets smarter with every query.
 → `knowledge_sharing.py` · `notes/08_knowledge_sharing.md`
 
+### 9. Tool Routing
+Scoped tool dispatch — a central router classifies intent via LLM tool_use and delegates to a specialist; each specialist is instantiated with only its own tools (no cross-contamination). A ToolRegistry is the single source of truth; adding a new agent requires only registry calls — the router adapts automatically.
+→ `tool_routing.py` · `notes/09_tool_routing.md`
+
+### 10. Consensus
+Multi-round convergence — a group of agents broadcast their beliefs, observe the collective mean, and iteratively adjust toward agreement. An outlier-detection layer identifies and down-weights agents providing systematically bad data. The process terminates on convergence or max rounds, with a full audit trail of every round.
+→ `consensus.py` · `notes/10_consensus.md`
+
 ---
 
 ## How to Follow
@@ -63,6 +71,8 @@ python contract_net_marketplace.py
 python supervision_tree.py
 python multi_agent_planning.py
 python knowledge_sharing.py
+python tool_routing.py
+python consensus.py
 ```
 
 **Scaffold new patterns** — slash commands in `.claude/commands/` let you generate a new implementation for any domain:
@@ -75,6 +85,8 @@ python knowledge_sharing.py
 /create-contract-net           <your domain>
 /create-multi-agent-planning   <your domain>
 /create-knowledge-sharing      <your domain>
+/create-tool-routing           <your domain>
+/create-consensus              <your domain>
 ```
 
 ---
@@ -89,3 +101,5 @@ python knowledge_sharing.py
 6. Supervision Tree — fault isolation and least-privilege capability guarding
 7. Multi-Agent Planning — decompose goals into parallel dependency graphs
 8. Knowledge Sharing — collective memory, semantic retrieval, trust-driven quality
+9. Tool Routing — scoped tool dispatch, dynamic registry, two-level routing
+10. Consensus — iterative belief convergence, outlier detection, audit trail
